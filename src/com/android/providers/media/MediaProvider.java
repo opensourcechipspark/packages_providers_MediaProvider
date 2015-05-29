@@ -3296,7 +3296,7 @@ public class MediaProvider extends ContentProvider {
                 File file = new File(path);
                 if (file.exists()) {
                     values.put(FileColumns.DATE_MODIFIED, file.lastModified() / 1000);
-                    if (!values.containsKey(FileColumns.SIZE)) {
+                    if (!values.containsKey(FileColumns.SIZE) ||(values.containsKey(FileColumns.SIZE) &&path.contains("DCIM/Camera/IMG_"))){
                         values.put(FileColumns.SIZE, file.length());
                     }
                     // make sure date taken time is set
